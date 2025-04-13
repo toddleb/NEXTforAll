@@ -85,7 +85,7 @@ const getChartOptions = (type: 'line' | 'bar' | 'area', showLegend = false, show
       }
     },
     interaction: {
-      mode: 'index',
+      mode: 'index' as const,
       intersect: false
     }
   };
