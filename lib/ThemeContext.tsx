@@ -4,8 +4,8 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 
 // Define the context interface
 interface ThemeContextType {
-  theme: ThemeMode;
-  setTheme: (theme: ThemeMode) => void;
+  theme: 'light' | 'nextDark';
+  setTheme: (theme: 'light' | 'nextDark') => void;
   toggleTheme: () => void;
 }
 
