@@ -11,7 +11,6 @@ import {
   Badge,
   Divider,
   IconButton,
-  Collapse,
   useColorModeValue,
   Icon,
   Tooltip,
@@ -127,18 +126,19 @@ export default function LeftSidebar({
         </ListItem>
       </List>
 
+      {/* Filters stub */}
       <Box px={4} mb={4}>
-        <HStack justify="space-between" onClick={() => setExpandedFilters(!expandedFilters)} cursor="pointer" mb={2}>
+        <HStack justify="space-between" cursor="pointer" mb={2}>
           <HStack spacing={2}>
             <Icon as={FaFilter} fontSize="xs" />
             <Text fontSize="xs" color={textColor} fontWeight="medium" letterSpacing="wider">
-              FILTERS
+              FILTERS (stub)
             </Text>
           </HStack>
           <Icon as={expandedFilters ? ChevronDownIcon : ChevronRightIcon} fontSize="xs" />
         </HStack>
 
-        <Collapse in={expandedFilters}>
+        <Box>
           <VStack align="stretch" spacing={2} pl={1}>
             {segments.map((segment, idx) => (
               <HStack key={idx} fontSize="sm" cursor="pointer" p={2} borderRadius="md" _hover={{ bg: navHoverBg }}>
@@ -152,23 +152,24 @@ export default function LeftSidebar({
               More Filters
             </Button>
           </VStack>
-        </Collapse>
+        </Box>
       </Box>
 
       <Divider mb={4} />
 
+      {/* Programs stub */}
       <Box px={4} mb={4}>
-        <HStack justify="space-between" onClick={() => setExpandedPrograms(!expandedPrograms)} cursor="pointer" mb={2}>
+        <HStack justify="space-between" cursor="pointer" mb={2}>
           <HStack spacing={2}>
             <Icon as={FaGraduationCap} fontSize="xs" />
             <Text fontSize="xs" color={textColor} fontWeight="medium" letterSpacing="wider">
-              PROGRAMS
+              PROGRAMS (stub)
             </Text>
           </HStack>
           <Icon as={expandedPrograms ? ChevronDownIcon : ChevronRightIcon} fontSize="xs" />
         </HStack>
 
-        <Collapse in={expandedPrograms}>
+        <Box>
           <VStack align="stretch" spacing={2} pl={1}>
             {programs.map((program, idx) => (
               <HStack
@@ -191,23 +192,24 @@ export default function LeftSidebar({
               All Programs
             </Button>
           </VStack>
-        </Collapse>
+        </Box>
       </Box>
 
       <Divider mb={4} />
 
+      {/* Saved Segments stub */}
       <Box px={4} mb={4}>
-        <HStack justify="space-between" onClick={() => setExpandedSegments(!expandedSegments)} cursor="pointer" mb={2}>
+        <HStack justify="space-between" cursor="pointer" mb={2}>
           <HStack spacing={2}>
             <StarIcon fontSize="xs" />
             <Text fontSize="xs" color={textColor} fontWeight="medium" letterSpacing="wider">
-              SAVED SEGMENTS
+              SAVED SEGMENTS (stub)
             </Text>
           </HStack>
           <Icon as={expandedSegments ? ChevronDownIcon : ChevronRightIcon} fontSize="xs" />
         </HStack>
 
-        <Collapse in={expandedSegments}>
+        <Box>
           <VStack align="stretch" spacing={2} pl={1}>
             <HStack fontSize="sm" cursor="pointer" p={2} borderRadius="md" _hover={{ bg: navHoverBg }}>
               <Text>High Intent CS Majors</Text>
@@ -219,7 +221,7 @@ export default function LeftSidebar({
               Create Segment
             </Button>
           </VStack>
-        </Collapse>
+        </Box>
       </Box>
 
       <Box mt="auto" p={4} borderTopWidth="1px" borderColor={borderColor}>
