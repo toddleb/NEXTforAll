@@ -1,14 +1,14 @@
 // components/layout/LeftSidebar.tsx
 import React, { useState } from 'react';
-import { 
-  Box, 
-  Text, 
-  VStack, 
-  HStack, 
+import {
+  Box,
+  Text,
+  VStack,
+  HStack,
   List,
-  ListItem, 
-  Button, 
-  Badge, 
+  ListItem,
+  Button,
+  Badge,
   Divider,
   IconButton,
   Collapse,
@@ -26,8 +26,8 @@ import {
   StarIcon,
   SettingsIcon
 } from '@chakra-ui/icons';
-import { 
-  FaFilter, 
+import {
+  FaFilter,
   FaRegBuilding,
   FaGraduationCap,
   FaUsers,
@@ -48,7 +48,7 @@ export default function LeftSidebar({
   const [expandedFilters, setExpandedFilters] = useState(true);
   const [expandedPrograms, setExpandedPrograms] = useState(true);
   const [expandedSegments, setExpandedSegments] = useState(false);
-  
+
   const defaultBg = useColorModeValue('gray.100', 'gray.900');
   const navBg = useColorModeValue('white', 'gray.800');
   const navHoverBg = useColorModeValue('gray.50', 'gray.700');
@@ -56,14 +56,14 @@ export default function LeftSidebar({
   const textColor = useColorModeValue('gray.600', 'gray.300');
   const activeBg = useColorModeValue('purple.50', 'purple.900');
   const activeColor = useColorModeValue('purple.600', 'purple.200');
-  
+
   const segments = [
     { name: 'High Intent', count: 48, color: 'green' },
     { name: 'New Applicants', count: 36, color: 'blue' },
     { name: 'Needs Follow-up', count: 12, color: 'orange' },
     { name: 'Recently Active', count: 27, color: 'purple' },
   ];
-  
+
   const programs = [
     { name: 'Computer Science', count: 32, active: true },
     { name: 'Data Science', count: 27 },
@@ -73,9 +73,9 @@ export default function LeftSidebar({
   ];
 
   return (
-    <Box 
-      w="280px" 
-      bg={bgColor || defaultBg} 
+    <Box
+      w="280px"
+      bg={bgColor || defaultBg}
       borderRightWidth="1px"
       borderColor={borderColor}
       overflowY="auto"
@@ -85,20 +85,20 @@ export default function LeftSidebar({
           <InputLeftElement pointerEvents="none">
             <SearchIcon color="gray.400" />
           </InputLeftElement>
-          <Input 
-            placeholder="Search candidates..." 
+          <Input
+            placeholder="Search candidates..."
             bg={navBg}
             borderRadius="md"
           />
         </InputGroup>
-        
+
         <Text fontSize="xs" color={textColor} fontWeight="medium" mb={1} letterSpacing="wider">
           NAVIGATION
         </Text>
       </Box>
 
       <List spacing={0} styleType="none">
-        <ListItem 
+        <ListItem
           bg={activeBg}
           color={activeColor}
           p={3}
@@ -111,14 +111,14 @@ export default function LeftSidebar({
             <Text>Dashboard</Text>
           </HStack>
         </ListItem>
-        
+
         <ListItem p={3} fontWeight="medium" cursor="pointer" _hover={{ bg: navHoverBg }}>
           <HStack spacing={2}>
             <Icon as={FaUsers} />
             <Text>All Candidates</Text>
           </HStack>
         </ListItem>
-        
+
         <ListItem p={3} fontWeight="medium" cursor="pointer" _hover={{ bg: navHoverBg }}>
           <HStack spacing={2}>
             <Icon as={FaRegBuilding} />
@@ -126,7 +126,7 @@ export default function LeftSidebar({
           </HStack>
         </ListItem>
       </List>
-      
+
       <Box px={4} mb={4}>
         <HStack justify="space-between" onClick={() => setExpandedFilters(!expandedFilters)} cursor="pointer" mb={2}>
           <HStack spacing={2}>
@@ -138,7 +138,7 @@ export default function LeftSidebar({
           <Icon as={expandedFilters ? ChevronDownIcon : ChevronRightIcon} fontSize="xs" />
         </HStack>
 
-        <Collapse in={expandedFilters}>
+        <Collapse in={expandedFilters} children={
           <VStack align="stretch" spacing={2} pl={1}>
             {segments.map((segment, idx) => (
               <HStack key={idx} fontSize="sm" cursor="pointer" p={2} borderRadius="md" _hover={{ bg: navHoverBg }}>
@@ -152,11 +152,11 @@ export default function LeftSidebar({
               More Filters
             </Button>
           </VStack>
-        </Collapse>
+        } />
       </Box>
-      
+
       <Divider mb={4} />
-      
+
       <Box px={4} mb={4}>
         <HStack justify="space-between" onClick={() => setExpandedPrograms(!expandedPrograms)} cursor="pointer" mb={2}>
           <HStack spacing={2}>
@@ -168,15 +168,15 @@ export default function LeftSidebar({
           <Icon as={expandedPrograms ? ChevronDownIcon : ChevronRightIcon} fontSize="xs" />
         </HStack>
 
-        <Collapse in={expandedPrograms}>
+        <Collapse in={expandedPrograms} children={
           <VStack align="stretch" spacing={2} pl={1}>
             {programs.map((program, idx) => (
-              <HStack 
-                key={idx} 
-                fontSize="sm" 
-                cursor="pointer" 
-                p={2} 
-                borderRadius="md" 
+              <HStack
+                key={idx}
+                fontSize="sm"
+                cursor="pointer"
+                p={2}
+                borderRadius="md"
                 bg={program.active ? activeBg : 'transparent'}
                 color={program.active ? activeColor : 'inherit'}
                 _hover={{ bg: program.active ? activeBg : navHoverBg }}
@@ -191,11 +191,11 @@ export default function LeftSidebar({
               All Programs
             </Button>
           </VStack>
-        </Collapse>
+        } />
       </Box>
-      
+
       <Divider mb={4} />
-      
+
       <Box px={4} mb={4}>
         <HStack justify="space-between" onClick={() => setExpandedSegments(!expandedSegments)} cursor="pointer" mb={2}>
           <HStack spacing={2}>
@@ -207,7 +207,7 @@ export default function LeftSidebar({
           <Icon as={expandedSegments ? ChevronDownIcon : ChevronRightIcon} fontSize="xs" />
         </HStack>
 
-        <Collapse in={expandedSegments}>
+        <Collapse in={expandedSegments} children={
           <VStack align="stretch" spacing={2} pl={1}>
             <HStack fontSize="sm" cursor="pointer" p={2} borderRadius="md" _hover={{ bg: navHoverBg }}>
               <Text>High Intent CS Majors</Text>
@@ -219,9 +219,9 @@ export default function LeftSidebar({
               Create Segment
             </Button>
           </VStack>
-        </Collapse>
+        } />
       </Box>
-      
+
       <Box mt="auto" p={4} borderTopWidth="1px" borderColor={borderColor}>
         <HStack>
           <Tooltip label="Settings">
