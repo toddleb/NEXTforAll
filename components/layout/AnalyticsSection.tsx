@@ -20,7 +20,7 @@ import { ChevronDownIcon, DownloadIcon, SettingsIcon } from '@chakra-ui/icons';
 // Import our components
 import AnalyticsPanel from '@/components/common/AnalyticsPanel';
 import { DEFAULT_CHARTS, DEFAULT_HEATMAPS } from '@/lib/analyticsLibrary';
-import { useSelectedAnalytics } from '@/lib/useSelectedAnalytics';
+import { useSelectedAnalytics } from '@/lib/UseSelectedAnalytics';
 
 interface AnalyticsSectionProps {
   programId: string;
