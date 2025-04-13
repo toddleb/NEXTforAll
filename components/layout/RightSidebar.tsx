@@ -52,7 +52,6 @@ export default function RightSidebar({
   const textColor = useColorModeValue('gray.600', 'gray.300');
   const headingColor = useColorModeValue('gray.700', 'gray.50');
   
-  // Placeholder notifications
   const notifications = [
     {
       title: '5 new high-intent candidates',
@@ -77,13 +76,11 @@ export default function RightSidebar({
     },
   ];
   
-  // Placeholder goals
   const goals = [
     { name: 'Enrollment Target', current: 76, target: 100, unit: 'students', progress: 76 },
     { name: 'Outreach Goal', current: 145, target: 200, unit: 'contacts', progress: 72 },
   ];
   
-  // Placeholder recommended actions
   const recommendedActions = [
     { action: 'Contact 8 high-intent candidates', priority: 'high' },
     { action: 'Review 12 new applications', priority: 'medium' },
@@ -98,7 +95,7 @@ export default function RightSidebar({
       borderColor={borderColor}
       overflowY="auto"
     >
-      {/* Program Stats */}
+      {/* Program Insights */}
       <Box p={4} mb={2}>
         <Text fontSize="xs" fontWeight="medium" color={textColor} letterSpacing="wider" mb={3}>
           PROGRAM INSIGHTS
@@ -146,7 +143,7 @@ export default function RightSidebar({
       
       <Divider mb={4} />
       
-      {/* Goals section */}
+      {/* Goals Section */}
       <Box px={4} mb={4}>
         <Text fontSize="xs" fontWeight="medium" color={textColor} letterSpacing="wider" mb={3}>
           GOALS
@@ -193,7 +190,7 @@ export default function RightSidebar({
             NOTIFICATIONS
           </Text>
           <Badge colorScheme="red" variant="solid" borderRadius="full">
-            3
+            {notifications.length}
           </Badge>
         </HStack>
         
@@ -238,7 +235,7 @@ export default function RightSidebar({
       
       <Divider mb={4} />
       
-      {/* Recommended actions */}
+      {/* Recommended Actions */}
       <Box px={4} mb={4}>
         <Text fontSize="xs" fontWeight="medium" color={textColor} letterSpacing="wider" mb={3}>
           RECOMMENDED ACTIONS
@@ -290,7 +287,9 @@ export default function RightSidebar({
           cursor="pointer"
           _hover={{ bg: 'purple.600' }}
           role="button"
-          onClick={() => setIsAiChatVisible?.(!isAiChatVisible)}
+          tabIndex={0}
+          aria-label="Toggle AI Career Assistant"
+          onClick={() => setIsAiChatVisible?.(!isAiChatVisible ?? false)}
         >
           <HStack>
             <Icon as={FaUserGraduate} boxSize={5} />
