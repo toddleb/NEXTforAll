@@ -289,7 +289,7 @@ export default function RightSidebar({
           role="button"
           tabIndex={0}
           aria-label="Toggle AI Career Assistant"
-          onClick={() => setIsAiChatVisible?.(!isAiChatVisible ?? false)}
+          onClick={() => setIsAiChatVisible?.(!isAiChatVisible)}
         >
           <HStack>
             <Icon as={FaUserGraduate} boxSize={5} />
