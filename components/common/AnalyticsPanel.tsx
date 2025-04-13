@@ -20,7 +20,7 @@ import Heatmap from './Heatmap';
 import AnalyticsSelector from './AnalyticsSelector';
 
 // Import hooks and data
-import { useSelectedAnalytics } from '@/lib/useSelectedAnalytics';
+import { useSelectedAnalytics } from '@/lib/UseSelectedAnalytics';
 import { DEFAULT_CHARTS, DEFAULT_HEATMAPS } from '@/lib/analyticsLibrary';
 
 interface AnalyticsPanelProps {
