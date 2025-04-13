@@ -1,0 +1,52 @@
+
+/* globals.css */
+
+/* Font Import (optional if not in index.html) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+:root {
+  --color-bg-light: #ffffff;
+  --color-bg-dark: #0b0f1a;
+  --color-text-light: #1a1a1a;
+  --color-text-dark: #ffffff;
+  --color-primary: #6200ee;
+  --color-accent: #03dac6;
+  --color-chart1: #ff9800;
+  --transition: 0.3s ease-in-out;
+}
+
+[data-theme='light'] {
+  --color-bg: var(--color-bg-light);
+  --color-text: var(--color-text-light);
+}
+
+[data-theme='dark'],
+[data-theme='nextDark'] {
+  --color-bg: var(--color-bg-dark);
+  --color-text: var(--color-text-dark);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  transition: background-color var(--transition), color var(--transition);
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.container {
+  padding: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
