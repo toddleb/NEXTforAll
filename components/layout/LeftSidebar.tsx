@@ -24,11 +24,9 @@ import {
   ChevronRightIcon,
   SearchIcon,
   StarIcon,
-  CheckIcon,
   SettingsIcon
 } from '@chakra-ui/icons';
 import { 
-  FaUserGraduate, 
   FaFilter, 
   FaRegBuilding,
   FaGraduationCap,
@@ -141,7 +139,7 @@ export default function LeftSidebar({
         </HStack>
 
         <Collapse in={expandedFilters}>
-          {<VStack align="stretch" spacing={2} pl={1}>
+          <VStack align="stretch" spacing={2} pl={1}>
             {segments.map((segment, idx) => (
               <HStack key={idx} fontSize="sm" cursor="pointer" p={2} borderRadius="md" _hover={{ bg: navHoverBg }}>
                 <Badge colorScheme={segment.color} variant="subtle">
@@ -153,7 +151,7 @@ export default function LeftSidebar({
             <Button size="xs" leftIcon={<Icon as={FaFilter} />} variant="outline" mt={1}>
               More Filters
             </Button>
-          </VStack>}
+          </VStack>
         </Collapse>
       </Box>
       
@@ -171,7 +169,7 @@ export default function LeftSidebar({
         </HStack>
 
         <Collapse in={expandedPrograms}>
-          {<VStack align="stretch" spacing={2} pl={1}>
+          <VStack align="stretch" spacing={2} pl={1}>
             {programs.map((program, idx) => (
               <HStack 
                 key={idx} 
@@ -192,7 +190,7 @@ export default function LeftSidebar({
             <Button size="xs" leftIcon={<Icon as={FaGraduationCap} />} variant="outline" mt={1}>
               All Programs
             </Button>
-          </VStack>}
+          </VStack>
         </Collapse>
       </Box>
       
@@ -210,7 +208,7 @@ export default function LeftSidebar({
         </HStack>
 
         <Collapse in={expandedSegments}>
-          {<VStack align="stretch" spacing={2} pl={1}>
+          <VStack align="stretch" spacing={2} pl={1}>
             <HStack fontSize="sm" cursor="pointer" p={2} borderRadius="md" _hover={{ bg: navHoverBg }}>
               <Text>High Intent CS Majors</Text>
             </HStack>
@@ -220,7 +218,7 @@ export default function LeftSidebar({
             <Button size="xs" leftIcon={<StarIcon />} variant="outline" mt={1}>
               Create Segment
             </Button>
-          </VStack>}
+          </VStack>
         </Collapse>
       </Box>
       
@@ -234,4 +232,4 @@ export default function LeftSidebar({
       </Box>
     </Box>
   );
-}Showe full righht siebar file
+}
