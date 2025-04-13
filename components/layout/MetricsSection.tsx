@@ -20,7 +20,7 @@ import { IoGrid, IoBarChart } from 'react-icons/io5';
 import MetricsBar from '@/components/common/MetricsBar';
 import MetricSelector from '@/components/common/MetricSelector';
 import { METRICS, DEFAULT_METRICS } from '@/lib/metricsLibrary';
-import { useSelectedMetrics } from '@/lib/useSelectedMetrics';
+import { useSelectedMetrics } from '@/lib/UseSelectedMetrics';
 
 interface MetricsSectionProps {
   programId: string;
