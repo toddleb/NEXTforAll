@@ -189,7 +189,7 @@ export default function ChartPanel({
   // If no charts available
   if (chartsToDisplay.length === 0) {
     return (
-      <Box p={6} bg={bgColor} borderRadius="md" shadow="sm" borderWidth="1px" borderColor={borderColor} textAlign="center">
+      <Box p={6} bg={cardBg} borderRadius="md" shadow="sm" borderWidth="1px" borderColor={borderColor} textAlign="center">
         <Text>No chart data available. Please select charts in the customization panel.</Text>
       </Box>
     );
