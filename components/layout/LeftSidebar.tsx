@@ -138,7 +138,7 @@ export default function LeftSidebar({
           <Icon as={expandedFilters ? ChevronDownIcon : ChevronRightIcon} fontSize="xs" />
         </HStack>
 
-        <Collapse in={expandedFilters} children={
+        <Collapse in={expandedFilters}>
           <VStack align="stretch" spacing={2} pl={1}>
             {segments.map((segment, idx) => (
               <HStack key={idx} fontSize="sm" cursor="pointer" p={2} borderRadius="md" _hover={{ bg: navHoverBg }}>
@@ -152,7 +152,7 @@ export default function LeftSidebar({
               More Filters
             </Button>
           </VStack>
-        } />
+        </Collapse>
       </Box>
 
       <Divider mb={4} />
@@ -168,7 +168,7 @@ export default function LeftSidebar({
           <Icon as={expandedPrograms ? ChevronDownIcon : ChevronRightIcon} fontSize="xs" />
         </HStack>
 
-        <Collapse in={expandedPrograms} children={
+        <Collapse in={expandedPrograms}>
           <VStack align="stretch" spacing={2} pl={1}>
             {programs.map((program, idx) => (
               <HStack
@@ -191,7 +191,7 @@ export default function LeftSidebar({
               All Programs
             </Button>
           </VStack>
-        } />
+        </Collapse>
       </Box>
 
       <Divider mb={4} />
@@ -207,7 +207,7 @@ export default function LeftSidebar({
           <Icon as={expandedSegments ? ChevronDownIcon : ChevronRightIcon} fontSize="xs" />
         </HStack>
 
-        <Collapse in={expandedSegments} children={
+        <Collapse in={expandedSegments}>
           <VStack align="stretch" spacing={2} pl={1}>
             <HStack fontSize="sm" cursor="pointer" p={2} borderRadius="md" _hover={{ bg: navHoverBg }}>
               <Text>High Intent CS Majors</Text>
@@ -219,7 +219,7 @@ export default function LeftSidebar({
               Create Segment
             </Button>
           </VStack>
-        } />
+        </Collapse>
       </Box>
 
       <Box mt="auto" p={4} borderTopWidth="1px" borderColor={borderColor}>
