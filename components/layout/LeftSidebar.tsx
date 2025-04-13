@@ -47,12 +47,10 @@ export default function LeftSidebar({
   bgColor,
   filteredCandidates,
 }: LeftSidebarProps) {
-  // States for expandable sections
   const [expandedFilters, setExpandedFilters] = useState(true);
   const [expandedPrograms, setExpandedPrograms] = useState(true);
   const [expandedSegments, setExpandedSegments] = useState(false);
   
-  // Colors
   const defaultBg = useColorModeValue('gray.100', 'gray.900');
   const navBg = useColorModeValue('white', 'gray.800');
   const navHoverBg = useColorModeValue('gray.50', 'gray.700');
@@ -61,7 +59,6 @@ export default function LeftSidebar({
   const activeBg = useColorModeValue('purple.50', 'purple.900');
   const activeColor = useColorModeValue('purple.600', 'purple.200');
   
-  // Predefined segments
   const segments = [
     { name: 'High Intent', count: 48, color: 'green' },
     { name: 'New Applicants', count: 36, color: 'blue' },
@@ -69,7 +66,6 @@ export default function LeftSidebar({
     { name: 'Recently Active', count: 27, color: 'purple' },
   ];
   
-  // Programs list
   const programs = [
     { name: 'Computer Science', count: 32, active: true },
     { name: 'Data Science', count: 27 },
@@ -86,7 +82,6 @@ export default function LeftSidebar({
       borderColor={borderColor}
       overflowY="auto"
     >
-      {/* Program search */}
       <Box p={4}>
         <InputGroup size="sm" mb={4}>
           <InputLeftElement pointerEvents="none">
@@ -103,8 +98,7 @@ export default function LeftSidebar({
           NAVIGATION
         </Text>
       </Box>
-      
-      {/* Main navigation */}
+
       <List spacing={0} styleType="none">
         <ListItem 
           bg={activeBg}
@@ -120,24 +114,14 @@ export default function LeftSidebar({
           </HStack>
         </ListItem>
         
-        <ListItem 
-          p={3}
-          fontWeight="medium"
-          cursor="pointer"
-          _hover={{ bg: navHoverBg }}
-        >
+        <ListItem p={3} fontWeight="medium" cursor="pointer" _hover={{ bg: navHoverBg }}>
           <HStack spacing={2}>
             <Icon as={FaUsers} />
             <Text>All Candidates</Text>
           </HStack>
         </ListItem>
         
-        <ListItem 
-          p={3}
-          fontWeight="medium"
-          cursor="pointer"
-          _hover={{ bg: navHoverBg }}
-        >
+        <ListItem p={3} fontWeight="medium" cursor="pointer" _hover={{ bg: navHoverBg }}>
           <HStack spacing={2}>
             <Icon as={FaRegBuilding} />
             <Text>Programs</Text>
@@ -145,7 +129,6 @@ export default function LeftSidebar({
         </ListItem>
       </List>
       
-      {/* Filters section */}
       <Box px={4} mb={4}>
         <HStack justify="space-between" onClick={() => setExpandedFilters(!expandedFilters)} cursor="pointer" mb={2}>
           <HStack spacing={2}>
@@ -156,9 +139,9 @@ export default function LeftSidebar({
           </HStack>
           <Icon as={expandedFilters ? ChevronDownIcon : ChevronRightIcon} fontSize="xs" />
         </HStack>
-        
+
         <Collapse in={expandedFilters}>
-          <VStack align="stretch" spacing={2} pl={1}>
+          {<VStack align="stretch" spacing={2} pl={1}>
             {segments.map((segment, idx) => (
               <HStack key={idx} fontSize="sm" cursor="pointer" p={2} borderRadius="md" _hover={{ bg: navHoverBg }}>
                 <Badge colorScheme={segment.color} variant="subtle">
@@ -167,17 +150,15 @@ export default function LeftSidebar({
                 <Text>{segment.name}</Text>
               </HStack>
             ))}
-            
             <Button size="xs" leftIcon={<Icon as={FaFilter} />} variant="outline" mt={1}>
               More Filters
             </Button>
-          </VStack>
+          </VStack>}
         </Collapse>
       </Box>
       
       <Divider mb={4} />
       
-      {/* Programs section */}
       <Box px={4} mb={4}>
         <HStack justify="space-between" onClick={() => setExpandedPrograms(!expandedPrograms)} cursor="pointer" mb={2}>
           <HStack spacing={2}>
@@ -188,9 +169,9 @@ export default function LeftSidebar({
           </HStack>
           <Icon as={expandedPrograms ? ChevronDownIcon : ChevronRightIcon} fontSize="xs" />
         </HStack>
-        
+
         <Collapse in={expandedPrograms}>
-          <VStack align="stretch" spacing={2} pl={1}>
+          {<VStack align="stretch" spacing={2} pl={1}>
             {programs.map((program, idx) => (
               <HStack 
                 key={idx} 
@@ -208,17 +189,15 @@ export default function LeftSidebar({
                 </Badge>
               </HStack>
             ))}
-            
             <Button size="xs" leftIcon={<Icon as={FaGraduationCap} />} variant="outline" mt={1}>
               All Programs
             </Button>
-          </VStack>
+          </VStack>}
         </Collapse>
       </Box>
       
       <Divider mb={4} />
       
-      {/* Saved segments */}
       <Box px={4} mb={4}>
         <HStack justify="space-between" onClick={() => setExpandedSegments(!expandedSegments)} cursor="pointer" mb={2}>
           <HStack spacing={2}>
@@ -229,9 +208,9 @@ export default function LeftSidebar({
           </HStack>
           <Icon as={expandedSegments ? ChevronDownIcon : ChevronRightIcon} fontSize="xs" />
         </HStack>
-        
+
         <Collapse in={expandedSegments}>
-          <VStack align="stretch" spacing={2} pl={1}>
+          {<VStack align="stretch" spacing={2} pl={1}>
             <HStack fontSize="sm" cursor="pointer" p={2} borderRadius="md" _hover={{ bg: navHoverBg }}>
               <Text>High Intent CS Majors</Text>
             </HStack>
@@ -241,11 +220,10 @@ export default function LeftSidebar({
             <Button size="xs" leftIcon={<StarIcon />} variant="outline" mt={1}>
               Create Segment
             </Button>
-          </VStack>
+          </VStack>}
         </Collapse>
       </Box>
       
-      {/* Footer */}
       <Box mt="auto" p={4} borderTopWidth="1px" borderColor={borderColor}>
         <HStack>
           <Tooltip label="Settings">
@@ -256,4 +234,4 @@ export default function LeftSidebar({
       </Box>
     </Box>
   );
-}
+}Showe full righht siebar file
