@@ -1,6 +1,6 @@
 // lib/ThemeContext.tsx
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { ThemeMode } from '../theme/index';
+//import { ThemeMode } from '../theme/index';
 
 // Define the context interface
 interface ThemeContextType {
