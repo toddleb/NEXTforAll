@@ -268,7 +268,7 @@ export const HEATMAP_CONFIGS: Record<string, HeatMapConfig> = {
     xLabels: [], // This is a special heatmap type that uses a different rendering approach
     yLabels: [],
     data: [], // Data is handled internally by the USMapHeatmap component
-    colorScale: ['#63b3ed', '#9f7aea', '#ed64a6']
+    colorScale: ['#63b3ed', '#9f7aea', '#ed64a6', '#d53f8c']
   },
   intent_capability: {
     id: 'intent-capability',
