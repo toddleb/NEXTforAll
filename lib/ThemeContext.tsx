@@ -1,50 +1,36 @@
+// lib/ThemeContext.tsx
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import { chakraThemes } from '@/theme';
+import { ThemeId } from '@/theme/themes';
 
-interface ThemeContextType {
-  theme: 'light' | 'nextDark';
-  setTheme: (theme: 'light' | 'nextDark') => void;
-  toggleTheme: () => void;
-}
+type ThemeContextType = {
+  theme: ThemeId;
+  setTheme: (theme: ThemeId) => void;
+};
 
 const ThemeContext = createContext<ThemeContextType>({
   theme: 'light',
   setTheme: () => {},
-  toggleTheme: () => {},
 });
 
-export const useTheme = () => useContext(ThemeContext);
-
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [theme, setThemeState] = useState<'light' | 'nextDark'>('light');
-
+  const [theme, setTheme] = useState<ThemeId>('light');
+  
+  // Load theme from localStorage on client-side
   useEffect(() => {
-    const savedTheme = localStorage.getItem('theme') as 'light' | 'nextDark' | null;
-    if (savedTheme && (savedTheme === 'light' || savedTheme === 'nextDark')) {
-      setThemeState(savedTheme);
+    if (typeof window !== 'undefined') {
+      const storedTheme = localStorage.getItem('star-theme') as ThemeId | null;
+      if (storedTheme === 'light' || storedTheme === 'nextDark') {
+        setTheme(storedTheme);
+      }
     }
   }, []);
 
-  useEffect(() => {
-    localStorage.setItem('theme', theme);
-  }, [theme]);
-
-  const setTheme = (newTheme: 'light' | 'nextDark') => {
-    setThemeState(newTheme);
-  };
-
-  const toggleTheme = () => {
-    setThemeState(prevTheme => (prevTheme === 'light' ? 'nextDark' : 'light'));
-  };
-
-  const contextValue: ThemeContextType = {
-    theme,
-    setTheme,
-    toggleTheme,
-  };
-
   return (
-    <ThemeContext.Provider value={contextValue}>
+    <ThemeContext.Provider value={{ theme, setTheme }}>
       {children}
     </ThemeContext.Provider>
   );
 };
+
+export const useTheme = () => useContext(ThemeContext);
