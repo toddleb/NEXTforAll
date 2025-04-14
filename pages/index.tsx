@@ -115,7 +115,7 @@ const HomePage: React.FC = () => {
               order={{ base: 1, lg: 2 }}
             >
               
-              {/* Logo - Centered above text */}
+              {/* Logo - Centered above text - CHANGED: made logo larger */}
               <Box 
                 px={1} 
                 py={1} 
@@ -127,8 +127,8 @@ const HomePage: React.FC = () => {
                 <Image 
                   src="/images/next-logo-white.png" 
                   alt="NEXT"
-                  height="80px"
-                  fallbackSrc="https://via.placeholder.com/200x80?text=NEXT"
+                  height="100px" // CHANGED: increased from 80px to 100px
+                  fallbackSrc="https://via.placeholder.com/200x100?text=NEXT"
                 />
               </Box>
               
@@ -138,8 +138,9 @@ const HomePage: React.FC = () => {
                 fontWeight="medium"
                 lineHeight="1.2"
               >
+                {/* CHANGED: "Evolve" to "Engage" */}
                 <Box as="span" fontWeight="bold" textDecoration="underline">N</Box>avigate.{' '}
-                <Box as="span" fontWeight="bold" textDecoration="underline">E</Box>volve.{' '}
+                <Box as="span" fontWeight="bold" textDecoration="underline">E</Box>ngage.{' '}
                 e<Box as="span" fontWeight="bold" textDecoration="underline">X</Box>plore.{' '}
                 <Box as="span" fontWeight="bold" textDecoration="underline">T</Box>ransform.
               </Heading>
@@ -150,6 +151,7 @@ const HomePage: React.FC = () => {
               </Text>
               
               <HStack spacing={4} mt={4}>
+                {/* CHANGED: Removed Learn More button, kept only Get Started */}
                 <Button 
                   as={NextLink} 
                   href="/login" 
@@ -159,15 +161,6 @@ const HomePage: React.FC = () => {
                   _hover={{ bg: 'whiteAlpha.300' }}
                 >
                   Get Started
-                </Button>
-                <Button 
-                  as={NextLink} 
-                  href="#learn-more" 
-                  size="lg"
-                  variant="outline"
-                  _hover={{ bg: 'whiteAlpha.200' }}
-                >
-                  Learn More
                 </Button>
               </HStack>
             </VStack>
@@ -179,16 +172,16 @@ const HomePage: React.FC = () => {
       <Box py={16} id="learn-more" bg={bg}>
         <Container maxW="container.xl">
           <VStack spacing={12}>
-            <Flex direction="column" align="center">
+            {/* CHANGED: Made logo and heading in same HStack */}
+            <HStack spacing={4} justifyContent="center" alignItems="center">
               <Image 
                 src="/images/next-logo-gradient.png" 
                 alt="NEXT"
                 height="60px"
-                mb={3}
                 fallbackSrc="https://via.placeholder.com/150x60?text=NEXT"
               />
-              <Heading size="xl" textAlign="center">One Platform, Many Domains</Heading>
-            </Flex>
+              <Heading size="xl">One Platform, Many Domains</Heading>
+            </HStack>
             
             <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} spacing={8} w="full">
               {domainCards.map((domain, index) => (
@@ -347,12 +340,13 @@ const HomePage: React.FC = () => {
                 Platform Login
               </Button>
               
+              {/* CHANGED: Made the Assessment Login button highlighted with a different color */}
               <Button 
                 as={NextLink} 
                 href="/assessment-login" 
                 size="lg"
-                variant="outline"
-                _hover={{ bg: 'whiteAlpha.200' }}
+                colorScheme="purple" // Changed from outline to purple colorScheme
+                rightIcon={<FaArrowRight />}
               >
                 Assessment Login
               </Button>
