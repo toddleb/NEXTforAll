@@ -1,5 +1,6 @@
 // theme/index.ts
 import { extendTheme, ThemeConfig } from '@chakra-ui/react';
+//fixed theme
 import { THEMES } from './themes';
 
 const config: ThemeConfig = {
