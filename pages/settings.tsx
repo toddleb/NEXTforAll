@@ -11,15 +11,15 @@ import {
 } from '@chakra-ui/react';
 import { useRouter } from 'next/router';
 import { THEMES, ThemeId } from '@/theme/themes';
-import { useThemeContext } from '@/lib/ThemeContext';
+import { useTheme } from '@/lib/ThemeContext'; // ✅ FIXED IMPORT
 
 export default function SettingsPage() {
-  const { themeId, setThemeId } = useThemeContext();
-  const [selectedTheme, setSelectedTheme] = useState<ThemeId>(themeId);
+  const { theme, setTheme } = useTheme(); // ✅ matches ThemeContext
+  const [selectedTheme, setSelectedTheme] = useState<ThemeId>(theme);
   const router = useRouter();
 
   const handleSave = () => {
-    setThemeId(selectedTheme);
+    setTheme(selectedTheme);
     localStorage.setItem('star-theme', selectedTheme);
     console.log('Theme saved:', selectedTheme);
   };
