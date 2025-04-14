@@ -39,7 +39,7 @@ export default function SettingsPage() {
               <Box>
                 <Text fontWeight="bold">{theme.label}</Text>
                 <Text fontSize="sm" color="gray.500">
-                  Accent: {theme.accentColor}, Background: {theme.bg || theme.bgGradient}
+                  Accent: {theme.accentColor}, Background: {theme.bg}
                 </Text>
               </Box>
             </Radio>
